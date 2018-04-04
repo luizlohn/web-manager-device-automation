@@ -1,0 +1,28 @@
+{
+  "capabilities":
+      [
+        {
+          "browserName": "Samsung Galaxy S6",
+          "deviceName": "04157df4e5fa702d",
+          "version":"7.0.0",
+          "maxInstances": 1,
+          "platformName": "Android",
+          "platform":"ANDROID"
+        }
+      ],
+  "configuration":
+  {
+		"cleanUpCycle":2000,
+     "timeout":30000,
+     "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
+     "url":"http://192.168.0.25:4723/wd/hub",
+     "host": "192.168.0.25",
+     "port": 4723,
+     "maxSession": 1,
+     "register": true,
+     "registerCycle": 5000,
+     "hubPort": 4444,
+     "hubHost": "192.168.0.25",
+		 "role": "node"
+  }
+}

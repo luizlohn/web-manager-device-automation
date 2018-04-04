@@ -1,0 +1,22 @@
+
+Start Selenium Grid
+java -jar selenium-server-standalone-3.5.3.jar -role hub
+
+Start Appium server
+appium -a 192.168.0.25 -p 4723 --nodeconfig /Users/macminiaiutomation/web-manager-device-automation/src/devicesLab/node-device-galaxyS6.json -U 04157df4e5fa702d
+appium -a 192.168.0.102 -p 4724 --nodeconfig /Users/macminiaiutomation/web-manager-device-automation/src/devicesLab/node-device-galaxyS5.json -U 56e76b47
+appium -a 127.0.0.1 -p 4725 --nodeconfig /Users/macminiaiutomation/web-manager-device-automation/src/devicesLab/node-device-iPhone6.json -U 4da23ae53de505738e174774b010885c7e04275a
+appium -a 192.168.0.107 -p 4726 --nodeconfig /Users/macminiaiutomation/web-manager-device-automation/src/devicesLab/node-device-nexus5.json -U 0d1633d302b3cbf0
+appium -a 192.168.0.25 -p 4727 --nodeconfig /Users/macminiaiutomation/web-manager-device-automation/src/devicesLab/node-device-J7.json -U 3100a21bdb30b30d
+
+Appium API URL
+appium_server: http://192.168.0.101:$PORT/wd/hub
+
+Start STF DataBase
+rethinkdb
+
+Start STF
+stf local --public-ip 192.168.0.25
+
+Access STF
+http://192.168.0.25:7100/

@@ -1,0 +1,110 @@
+<html lang="en" class="gr__bootsnipp_com" ltextstatus="loaded">
+<head>
+  <!-- Bootstrap core CSS -->
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="assets/js/devices.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <!-- Custom styles for this template -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <script>
+    function getSession(ip,tab) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("GET", "http://" + ip + "/wd/hub/sessions/", false);
+      xhttp.setRequestHeader("Content-type", "application/json");
+      xhttp.send();
+      var response = JSON.parse(xhttp.responseText);
+      // var id = response.value.length > 0 ? response.value[0].id : null
+      document.getElementById(tab).innerHTML = "Status: " + response.status + " -  Value: " + response.sessionId;
+      return response.sessionId
+    }
+
+        function getSessionID(ip) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("GET", "http://" + ip + "/wd/hub/sessions/", false);
+      xhttp.setRequestHeader("Content-type", "application/json");
+      xhttp.send();
+      var response = JSON.parse(xhttp.responseText);
+      return response.sessionId
+    }
+
+
+    function deleteSession(ip) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("DELETE", "http://"+ip+"/wd/hub/session/"+getSessionID(ip), false);
+      xhttp.setRequestHeader("Content-type", "application/json");
+      xhttp.send();
+    }
+
+    function statusServer(ip) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("GET", "http://" + ip + "/wd/hub/sessions/", false);
+      xhttp.setRequestHeader("Content-type", "application/json");
+      xhttp.send();
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+      <div class="row">
+          <div class="">
+              <div class="panel panel-primary">
+                  <div class="panel-heading">
+                      <span class="glyphicon glyphicon-list"></span>Appium Server 
+                  </div>
+                  <div class="panel-body" id="ListServer">
+                    <button id="refresh" type="button" class="btn btn-danger">Refresh</button>
+                      <ul class="list-group" id="list-tab" role="tablist" >
+                        <li class="list-group-item">
+                            Server IP:     <b>192.168.0.25:4723</b>   -  
+                            <button onclick="deleteSession('192.168.0.25:4723')" type="button" class="btn btn-danger">Delete Session</button>
+                            <button onclick="getSession('192.168.0.25:4723','listsession1')" id="List1" href="#listsession1" type="button" class="btn btn-info" data-toggle="collapse">List Session</button>
+                            <div id="listsession1" class="collapse">
+                            </div>
+                          </li>
+
+                          <li class="list-group-item">
+                              Server IP: <b>192.168.0.25:4724</b>   -  
+                              <button onclick="deleteSession()" type="button" class="btn btn-danger">Delete Session</button>
+                              <button onclick="getSession('192.168.0.25:4724','listsession2')" href="#listsession2" type="button" class="btn btn-info" data-toggle="collapse">List Session</button>
+                              <div id="listsession2" class="collapse">
+                              </div>
+                          </li>
+
+                          <li class="list-group-item">
+                              Server IP: <b>192.168.0.25:4725</b>   -  
+                              <button onclick="deleteSession()" type="button" class="btn btn-danger">Delete Session</button>
+                              <button onclick="getSession('192.168.0.25:4725','listsession3')" href="#listsession3" type="button" class="btn btn-info" data-toggle="collapse">List Session</button>
+                              <div id="listsession3" class="collapse">
+                              </div>
+                          </li>
+
+                          <li class="list-group-item">
+                              Server IP: <b>192.168.0.25:4726</b>   -  
+                              <button onclick="deleteSession()" type="button" class="btn btn-danger">Delete Session</button>
+                              <button onclick="getSession('192.168.0.25:4726','listsession4')" href="#listsession4" type="button" class="btn btn-info" data-toggle="collapse">List Session</button>
+                              <div id="listsession4" class="collapse">
+                              </div>
+                          </li>
+
+                          <li class="list-group-item">
+                              Server IP: <b>192.168.0.25:4727</b>   -  
+                              <button onclick="deleteSession('192.168.0.25:4727')" type="button" class="btn btn-danger">Delete Session</button>
+                              <button onclick="getSession('192.168.0.25:4727','listsession5')" href="#listsession5" type="button" class="btn btn-info" data-toggle="collapse">List Session</button>
+                              <div id="listsession5" class="collapse">
+                              </div>
+                          </li>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "capabilities":
+      [
+        {
+          "browserName": "Bravi iPhone 6",
+          "deviceName": "4da23ae53de505738e174774b010885c7e04275a",
+          "version":"11.2",
+          "maxInstances": 1,
+          "platformName": "iOS",
+          "platform":"MAC"
+        }
+      ],
+  "configuration":
+  {
+    "cleanUpCycle":2000,
+    "timeout":30000,
+    "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
+    "url":"http://127.0.0.1:4725/wd/hub",
+    "host": "127.0.0.1",
+    "port": 4725,
+    "maxSession": 1,
+    "register": true,
+    "registerCycle": 5000,
+    "hubPort": 4444,
+    "hubHost": "127.0.0.1",
+    "role": "node"
+  }
+}
